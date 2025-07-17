@@ -13,9 +13,9 @@ public class SignupPage {
         this.driver = thedriver;
     }
  
-
+    // pom ( page object model )
     // Locators
-    By firstname = By.name("firstname");
+    By firstname = By.id("AccountFrm_firstname");
     By lastname = By.id("AccountFrm_lastname");
     By email = By.id("AccountFrm_email");
     By telephone = By.id("AccountFrm_telephone");
@@ -33,7 +33,10 @@ public class SignupPage {
     By country = By.id("AccountFrm_country_id");
     By state = By.id("AccountFrm_zone_id");
 
-    public void fillForm(String f, String l, String mail, String phone, String user, String pass, String firstName) throws InterruptedException {
+    
+    // this is to fill the form still we didnt do any test 
+    
+    public void fillForm(String f, String l, String mail, String phone, String user, String pass) throws InterruptedException {
         driver.findElement(firstname).sendKeys(f);
         driver.findElement(lastname).sendKeys(l);
         driver.findElement(email).sendKeys(mail);
@@ -46,7 +49,7 @@ public class SignupPage {
 
         Select countrySelect = new Select(driver.findElement(country));
         int countryCount = driver.findElement(country).findElements(By.tagName("option")).size();
-        countrySelect.selectByIndex(rand.nextInt(countryCount));
+        countrySelect.selectByIndex(rand.nextInt(1,countryCount));
         
 
         Thread.sleep(2000);
@@ -62,7 +65,9 @@ public class SignupPage {
         driver.findElement(agree).click();
         driver.findElement(continueBtn).click();
     }
-
+    
+    
+// this is a return function that will return only ( true or false since it's a boolean ) 
     public boolean isSignupSuccess() {
         return driver.getPageSource().contains("Your Account Has Been Created!");
     }

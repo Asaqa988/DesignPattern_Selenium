@@ -32,7 +32,7 @@ public class UserTests {
         username = TestDataGenerator.getRandomUsername(firstName, lastName);
         String email = TestDataGenerator.getEmail(firstName, lastName);
 
-        signupPage.fillForm(firstName, lastName, email, "9624545455", username, password, firstName);
+        signupPage.fillForm(firstName, lastName, email, "9624545455", username, password);
         Assert.assertTrue(signupPage.isSignupSuccess(), "Signup failed");
     }
 
@@ -54,6 +54,8 @@ public class UserTests {
         Thread.sleep(1000);
         Assert.assertTrue(driver.getPageSource().contains("You have been logged off your account."), "Logout failed");
     }
+    
+
 
     @Test(priority = 4, enabled = true)
     public void testAddToCartAndCheckout() throws InterruptedException {

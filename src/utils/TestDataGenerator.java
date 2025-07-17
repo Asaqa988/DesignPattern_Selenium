@@ -11,7 +11,7 @@ public class TestDataGenerator {
     }
 
     public static String getRandomLastName() {
-        String[] names = {"alaa", "saif", "abduallah", "hamzeh", "marwan", "abedalrahman", "omar"};
+        String[] names = {"alaa", "saif", "abduallah", "hamzeh", "marwan", "abedalrahman", "omar","yazan"};
         return names[rand.nextInt(names.length)];
     }
 
